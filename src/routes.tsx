@@ -11,7 +11,6 @@ export const routes: PartialRouteObject[] = [
         path: '/',
         element: <Navigate to={mainPath} />,
     },
-
     {
         path: `${mainPath}/*`,
         element: <PagesLayout />,
