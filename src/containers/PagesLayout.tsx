@@ -1,8 +1,8 @@
 import React from 'react'
 import { Outlet } from 'react-router-dom'
-import Layout from "../components/Layout";
+import Layout from 'components/Layout'
 
-const PagesWrapper: React.FC = () => {
+const PagesLayout: React.FC = () => {
     return (
         <Layout>
             <Outlet />
@@ -10,4 +10,4 @@ const PagesWrapper: React.FC = () => {
     )
 }
 
-export default PagesWrapper
+export default PagesLayout
