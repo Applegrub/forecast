@@ -2,8 +2,8 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import CircularProgress from '@material-ui/core/CircularProgress'
 import { useWeatherOneDayQuery } from 'services/ApiService/queries/WeatherOneDay'
-import City from 'components/City'
 import { useWeatherDaysQuery } from 'services/ApiService/queries/WeatherDays'
+import City from 'components/City'
 import { mainPath } from 'routes'
 
 type Props = {
