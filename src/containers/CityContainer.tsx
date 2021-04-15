@@ -20,21 +20,21 @@ export default function CityContainer({ cityId }: Props) {
             enabled: !!cityId,
         }
     )
-    const {
-        data: daysForecast,
-        isLoading: isFiveDaysLoading,
-    } = useWeatherDaysQuery(
-        { id: cityId, days: 1 },
-        {
-            enabled: !!cityId,
-        }
-    )
+    // const {
+    //     data: daysForecast,
+    //     isLoading: isFiveDaysLoading,
+    // } = useWeatherDaysQuery(
+    //     { id: cityId, days: 1 },
+    //     {
+    //         enabled: !!cityId,
+    //     }
+    // )
 
     const handleGoBack = () => {
         navigate(`/${mainPath}`)
     }
 
-    return isOneDayLoading && isFiveDaysLoading ? (
+    return isOneDayLoading ? (
         <CircularProgress />
     ) : (
         <City oneDayForecast={oneDayForecast!} onGoBack={handleGoBack} />
