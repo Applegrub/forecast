@@ -1,3 +1,3 @@
 # Cool warm forecast
 
-https://applegrub.github.io/forecast/
+https://pensive-noyce-8f78d0.netlify.app/
