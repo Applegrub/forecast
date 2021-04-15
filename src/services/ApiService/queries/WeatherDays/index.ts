@@ -12,11 +12,12 @@ export const getWeatherDaysQueryKey = (params: WeatherDaysQueryVariables) => [
 
 const getWeatherDaysRequest = async (params: WeatherDaysQueryVariables) => {
     const { data } = await axiosInstance.get<WeatherDaysQueryResponse>(
-        `${weatherApi}/forecast/daily`,
+        `${weatherApi}/onecall`,
         {
             params: {
                 id: params.id,
-                cnt: params.days,
+                exclude: 'hourly,minutely',
+                // cnt: params.days,
                 units: units,
                 appid: appId,
             },

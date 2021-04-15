@@ -6,7 +6,7 @@ import { Weather } from './Weather'
 export interface CityOneDay {
     coord: Coord
     weather: Weather[]
-    base: 'stations'
+    base: string
     main: CityMain
     visibility: number
     wind: Wind

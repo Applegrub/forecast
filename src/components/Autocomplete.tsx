@@ -5,9 +5,8 @@ import { Typography, TextField, Grid } from '@material-ui/core'
 import Autocomplete from '@material-ui/lab/Autocomplete'
 import { makeStyles } from '@material-ui/core/styles'
 import { CityFindInfo } from 'services/ApiService/interfaces/CityFindInfo'
-import { weatherIconApi } from 'services/ApiService/const'
-
-const formatTemp = (str: number) => str.toString().replace(/\.\d*$/, '')
+import { formatTemp } from 'utils/helpers'
+import WeatherIcon from './WeatherIcon'
 
 const useStyles = makeStyles({
     img: {
@@ -82,10 +81,10 @@ const WeatherAutocomplete = ({
                                 </Typography>
                             </Grid>
                             <Grid item xs={4}>
-                                <img
-                                    src={`${weatherIconApi}/${weather[0].icon}@2x.png`}
-                                    alt={weather[0].main}
-                                    className={classes.img}
+                                <WeatherIcon
+                                    main={weather[0].main}
+                                    iconId={weather[0].icon}
+                                    styles={classes.img}
                                 />
                             </Grid>
                         </Grid>
