@@ -11,12 +11,12 @@ type Props = {
     onChange: FormikHandlers['handleChange']
 }
 
-const SearchWeather = ({
+const SearchWeather: React.FC<Props> = ({
     isLoading,
     weatherList,
     values: { search },
     onChange,
-}: Props) => (
+}) => (
     <>
         <Typography variant="h2">Weather Forecast</Typography>
         <Box my={3}>

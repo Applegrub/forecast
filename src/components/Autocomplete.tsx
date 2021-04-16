@@ -30,7 +30,7 @@ type Props = {
     onChange: FormikHandlers['handleChange']
 }
 
-const WeatherAutocomplete = ({
+const WeatherAutocomplete: React.FC<Props> = ({
     name,
     noOptionsText,
     options,
@@ -38,7 +38,7 @@ const WeatherAutocomplete = ({
     isLoading,
     value,
     onChange,
-}: Props) => {
+}) => {
     const classes = useStyles()
 
     const optionsClear = useMemo(

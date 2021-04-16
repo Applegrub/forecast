@@ -5,5 +5,5 @@ export const getFormattedDate = (
     formatString = 'HH:mm, dd MMMM'
 ): string => format(date, formatString)
 
-export const formatTemp = (str: number): string =>
-    str.toString().replace(/\.\d*$/, '')
+export const formatTemp = (str?: number): string =>
+    str?.toString().replace(/\.\d*$/, '') || ''

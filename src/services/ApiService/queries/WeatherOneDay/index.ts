@@ -1,14 +1,15 @@
 import { AxiosError } from 'axios'
-import { useQuery } from 'react-query'
+import { useQuery, UseQueryResult } from 'react-query'
 import { UseQueryOptions } from 'react-query/types/react/types'
 import { appId, units, weatherApi } from 'services/ApiService/const'
 import axiosInstance from 'services/ApiService/fetch'
 import { WeatherOneQueryResponse, WeatherOneQueryVariables } from './types'
 
-export const getWeatherOneQueryKey = (params: WeatherOneQueryVariables) => [
-    'weatherOne',
-    params,
-]
+type Return = WeatherOneQueryVariables | string
+
+export const getWeatherOneQueryKey = (
+    params: WeatherOneQueryVariables
+): Return[] => ['weatherOne', params]
 
 const getWeatherOneRequest = async (params: WeatherOneQueryVariables) => {
     const { data } = await axiosInstance.get<WeatherOneQueryResponse>(
@@ -21,7 +22,7 @@ const getWeatherOneRequest = async (params: WeatherOneQueryVariables) => {
 export const useWeatherOneDayQuery = (
     params: WeatherOneQueryVariables,
     config?: UseQueryOptions<WeatherOneQueryResponse, AxiosError>
-) =>
+): UseQueryResult<WeatherOneQueryResponse, AxiosError<string>> =>
     useQuery<WeatherOneQueryResponse, AxiosError>({
         queryKey: getWeatherOneQueryKey(params),
         queryFn: () => getWeatherOneRequest(params),

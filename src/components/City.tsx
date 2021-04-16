@@ -14,28 +14,30 @@ const useStyles = makeStyles(theme => ({
 }))
 
 type Props = {
-    oneDayForecast: CityOneDay
+    oneDayForecast?: CityOneDay
     onGoBack: () => void
 }
 
-export default function City({
+const City: React.FC<Props> = ({
     oneDayForecast: {
         name,
-        sys: { country },
+        sys: { country = '' } = {},
         dt,
         weather,
-        main: { temp },
-    },
+        main: { temp = undefined } = {},
+    } = {},
     onGoBack,
-}: Props) {
+}) => {
     const classes = useStyles()
 
     return (
         <Box display="flex">
             <Box>
-                <Typography variant="h3">{`${name}, ${country}`}</Typography>
+                <Typography variant="h3">{`${
+                    name as string
+                }, ${country}`}</Typography>
                 <Typography variant="subtitle1" color="primary">
-                    {getFormattedDate(new Date(dt * 1000))}
+                    {getFormattedDate(new Date((dt as number) * 1000))}
                 </Typography>
                 <Box display="flex" alignItems="center" pt={4} pb={3}>
                     <Typography variant="h2">
@@ -43,8 +45,8 @@ export default function City({
                         &nbsp;&#176;C
                     </Typography>
                     <WeatherIcon
-                        main={weather[0].main}
-                        iconId={weather[0].icon}
+                        main={weather?.[0].main as string}
+                        iconId={weather?.[0].icon as string}
                         styles={classes.img}
                     />
                 </Box>
@@ -56,3 +58,4 @@ export default function City({
         </Box>
     )
 }
+export default City

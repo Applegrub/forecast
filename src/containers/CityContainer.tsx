@@ -2,14 +2,13 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import CircularProgress from '@material-ui/core/CircularProgress'
 import { useWeatherOneDayQuery } from 'services/ApiService/queries/WeatherOneDay'
-import { useWeatherDaysQuery } from 'services/ApiService/queries/WeatherDays'
 import City from 'components/City'
 import { mainPath } from 'routes'
 
 type Props = {
     cityId: number
 }
-export default function CityContainer({ cityId }: Props) {
+const CityContainer: React.FC<Props> = ({ cityId }) => {
     const navigate = useNavigate()
     const {
         data: oneDayForecast,
@@ -37,6 +36,8 @@ export default function CityContainer({ cityId }: Props) {
     return isOneDayLoading ? (
         <CircularProgress />
     ) : (
-        <City oneDayForecast={oneDayForecast!} onGoBack={handleGoBack} />
+        <City oneDayForecast={oneDayForecast} onGoBack={handleGoBack} />
     )
 }
+
+export default CityContainer

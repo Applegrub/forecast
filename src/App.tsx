@@ -12,7 +12,7 @@ export const queryClient = new QueryClient({
     },
 })
 
-function App() {
+const App: React.FC = () => {
     return (
         <BrowserRouter>
             <QueryClientProvider client={queryClient}>

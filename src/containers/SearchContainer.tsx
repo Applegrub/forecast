@@ -4,7 +4,7 @@ import useDebounce from 'utils/useDebounce'
 import SearchWeather from 'components/SearchWeather'
 import { useWeatherFindQuery } from 'services/ApiService/queries/WeatherFind'
 
-export default function SearchContainer() {
+const SearchContainer: React.FC = () => {
     const { values, handleChange } = useFormik({
         initialValues: {
             search: '',
@@ -30,3 +30,4 @@ export default function SearchContainer() {
         />
     )
 }
+export default SearchContainer
